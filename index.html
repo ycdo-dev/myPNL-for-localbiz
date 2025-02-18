@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional PNL Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-chart-line"></i> Profit and Loss Tracker</h1>
+        <div class="form-container">
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="number" id="quantity" placeholder="Quantity" min="1" required>
+            <input type="number" id="price" placeholder="Price" step="0.01" required>
+            <input type="date" id="date" required>
+            <select id="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button onclick="addItem()"><i class="fas fa-plus"></i> Add Item</button>
+        </div>
+        <div class="table-container">
+            <table id="pnlTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="summary">
+            <h3><i class="fas fa-chart-pie"></i> Summary</h3>
+            <p>Total Income: <span id="totalIncome">0</span></p>
+            <p>Total Expenses: <span id="totalExpense">0</span></p>
+            <p>Net Profit: <span id="netProfit">0</span></p>
+        </div>
+        <div class="actions">
+            <button onclick="exportToExcel()"><i class="fas fa-file-excel"></i> Export to Excel</button>
+            <button onclick="window.print()"><i class="fas fa-print"></i> Print</button>
+            <button onclick="clearAll()"><i class="fas fa-trash"></i> Clear All</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
